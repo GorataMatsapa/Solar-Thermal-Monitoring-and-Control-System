@@ -11,3 +11,6 @@ __pycache__/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+#firebase credentials
+firebase-service-account.json
