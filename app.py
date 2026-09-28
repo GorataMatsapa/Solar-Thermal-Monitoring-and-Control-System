@@ -2,7 +2,7 @@ import streamlit as st
 
 from utils.authentication import login, check_login, logout
 
-from pages import (
+from views import (
     home,
     live_monitoring,
     digital_twin,
@@ -63,10 +63,82 @@ def login_page():
 
 def dashboard():
 
-    # create default page
+
+
+    # ------------------------------------------------------
+    # DEFAULT PAGE
+    # ------------------------------------------------------
+
     if "page" not in st.session_state:
         st.session_state.page = "Home"
 
+
+    # ------------------------------------------------------
+    # SIDEBAR NAVIGATION
+    # ------------------------------------------------------
+
+    with st.sidebar:
+
+        st.title("☀️ STMaCS")
+
+        st.caption("Smart Solar Thermal Monitoring and Control System")
+
+        st.divider()
+
+
+        # Main pages
+        st.subheader("Dashboard")
+
+        if st.button("🏠 Home", use_container_width=True):
+            st.session_state.page = "Home"
+            st.rerun()
+
+        if st.button("📡 Live Monitoring", use_container_width=True):
+            st.session_state.page = "Live Monitoring"
+            st.rerun()
+
+        if st.button("📈 Historical Trends", use_container_width=True):
+            st.session_state.page = "Historical Trends"
+            st.rerun()
+
+        if st.button("🧩 Digital Twin", use_container_width=True):
+            st.session_state.page = "Digital Twin"
+            st.rerun()
+
+        if st.button("🤖 Predictive Control", use_container_width=True):
+            st.session_state.page = "Predictive Control"
+            st.rerun()
+
+        if st.button("⚠️ Fault Logs", use_container_width=True):
+            st.session_state.page = "Fault Logs"
+            st.rerun()
+
+
+        st.divider()
+
+
+        # Secondary pages
+        if st.button("ℹ️ About", use_container_width=True):
+            st.session_state.page = "About Project"
+            st.rerun()
+
+        if st.button("⚙️ Settings", use_container_width=True):
+            st.session_state.page = "Settings"
+            st.rerun()
+
+
+        st.divider()
+
+
+        # Logout
+        if st.button("🚪 Logout", use_container_width=True):
+            logout()
+            st.rerun()
+
+
+    # ------------------------------------------------------
+    # PAGE ROUTER
+    # ------------------------------------------------------
 
     page = st.session_state.page
 

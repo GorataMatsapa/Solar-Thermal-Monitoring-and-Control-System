@@ -14,3 +14,14 @@ Thumbs.db
 
 #firebase credentials
 firebase-service-account.json
+
+# Local datasets
+data/
+
+#secrets
+const char* ssid = "Flybox_DA7E";
+const char* password = "w3xdi4yte6ea";
+ #define API_KEY "AIzaSyAyrnN-G6q1iycbVqBqSNBfcWQPgKsapXA"
+ #define USER_EMAIL "stmacs@gmail.com"
+ #define USER_PASSWORD "FuLi2018"
+ #define DATABASE_URL "https://stmacs-default-rtdb.europe-west1.firebasedatabase.app"
