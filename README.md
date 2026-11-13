@@ -12,7 +12,7 @@ The system provides a framework for monitoring thermal behaviour, analysing hist
 
 ## Research Context and Funding
 
-This research was undertaken at the **University of Botswana** with support from the **SOLTRAIN+ programme**, funded by the **Austrian Development Agency (ADA)**.
+This research was undertaken at the **University of Botswana** with support from the **SOLTRAIN+ programme**, funded by the **AEE INTEC**.
 
 The project contributes to research into intelligent renewable energy systems, particularly the application of IoT technologies, predictive analytics and embedded control in solar thermal energy management.
 
