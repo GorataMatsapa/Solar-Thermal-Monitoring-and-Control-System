@@ -169,7 +169,8 @@ The project formed part of research presented at the **International Sustainable
 
 The work contributed to research into intelligent monitoring and predictive control for solar thermal energy systems.
 
-*The associated conference proceeding should be cited here using its exact published title and bibliographic details.*
+ISEC Proceeding: Design and Implementation of a Smart Solar Thermal Monitoring and Predictive Control System With Autonomous Fault Mitigation 
+DOI: https://doi.org/10.52825/isec.v2i.3361
 
 ## Author
 
