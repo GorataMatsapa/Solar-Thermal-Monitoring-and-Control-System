@@ -1,0 +1,100 @@
+{
+  "run_id": "T3-20261103-091035",
+  "events": [
+    {
+      "event_id": "F-T3-20261103-091035-001",
+      "fault_type": "LOW_FLOW",
+      "subject": "flow",
+      "source": "injected",
+      "injections": [
+        "injected low flow 0.6 L/min"
+      ],
+      "injection_start_s": 600.0,
+      "first_condition_s": 610.0,
+      "detection_s": 670.0,
+      "severity": "major",
+      "peak_severity": "major",
+      "severity_history": [
+        [
+          670.0,
+          "major"
+        ]
+      ],
+      "measured_at_detection": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.6,
+        "flow_deviation_lpm": 1.4,
+        "flow_deviation_pct": 69.8,
+        "pump_command": true,
+        "pump_actual": true
+      },
+      "measured_at_peak": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.6,
+        "flow_deviation_lpm": 1.4,
+        "flow_deviation_pct": 70.1,
+        "pump_command": true,
+        "pump_actual": true
+      },
+      "mitigation_actions": [
+        {
+          "t": 670.0,
+          "event_id": "F-T3-20261103-091035-001",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "LOW_FLOW major"
+        },
+        {
+          "t": 670.0,
+          "event_id": "F-T3-20261103-091035-001",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T3-20261103-091035-001-fault-major",
+          "kind": "fault-major",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": null,
+      "status": "ACTIVE",
+      "duration_s": 1190.0,
+      "detection_epoch": 1793690505.6397376,
+      "first_condition_epoch": 1793690445.6397376,
+      "recovery_epoch": null,
+      "detection_delay_s": 70.0,
+      "time_to_recover_s": null
+    }
+  ],
+  "actions": [
+    {
+      "t": 670.0,
+      "event_id": "F-T3-20261103-091035-001",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "LOW_FLOW major"
+    },
+    {
+      "t": 670.0,
+      "event_id": "F-T3-20261103-091035-001",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    }
+  ],
+  "sms": [
+    {
+      "sms_id": "S-F-T3-20261103-091035-001-fault-major",
+      "event_id": "F-T3-20261103-091035-001",
+      "kind": "fault-major",
+      "text": "STMaCS HIL TEST LOW_FLOW MAJOR at t+11:10 flow 0.6 L/min",
+      "created_s": 670.0,
+      "updated_s": 670.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    }
+  ]
+}

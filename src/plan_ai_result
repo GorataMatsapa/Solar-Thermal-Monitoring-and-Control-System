@@ -1,0 +1,47 @@
+(.venv) PS C:\Users\ratie\OneDrive\Documents\EngineeringProjects\STMaCS> python src\plan_ai_test.py
+2026-11-06 11:01:58.471 WARNING streamlit.runtime.caching.cache_data_api: No runtime found, using MemoryCacheStorageManager
+==============================================================================
+PLAN + SAFETY NET UNDER A FORECAST SURPRISE
+==============================================================================
+Planner loaded from: C:\Users\ratie\OneDrive\Documents\EngineeringProjects\STMaCS\views\predictive_control.py
+AI models          : C:\Users\ratie\OneDrive\Documents\EngineeringProjects\STMaCS\models\twin_v1
+3 day(s); replanning every 30 min; heater 5000 W
+
+--- Forecast correct ---
+Thermostat 48 C            6.92 kWh | cold L:   0.0 in demand windows,   0.0 other hours |  28 switch-overs [1s]
+Plan only                  6.67 kWh | cold L:   0.0 in demand windows,  27.0 other hours |  12 switch-overs [76s]
+Plan + simple S3 rule      8.33 kWh | cold L:   0.0 in demand windows,   0.0 other hours |  16 switch-overs [152s]
+Plan + AI safety net       9.58 kWh | cold L:   0.0 in demand windows,   0.0 other hours |  22 switch-overs [237s]
+
+--- Forecast surprise (forecast clear, actual overcast) ---
+Thermostat 48 C           17.33 kWh | cold L:   0.0 in demand windows,   0.0 other hours |  58 switch-overs [238s]
+Plan only                 17.08 kWh | cold L:   3.2 in demand windows,  14.7 other hours |  24 switch-overs [312s]
+Plan + simple S3 rule     18.83 kWh | cold L:   0.0 in demand windows,   0.0 other hours |  32 switch-overs [383s]
+Plan + AI safety net       20.0 kWh | cold L:   0.0 in demand windows,   0.0 other hours |  40 switch-overs [461s]
+
+==============================================================================
+RESULTS
+==============================================================================
+                                               case              strategy  backup_kwh  cold_L_in_windows  cold_L_other_hours  hours_below  switch_overs
+                                   Forecast correct       Thermostat 48 C        6.92                0.0          0.0          0.0            28
+                                   Forecast correct             Plan only        6.67                0.0         27.0          5.9            12
+                                   Forecast correct Plan + simple S3 rule        8.33                0.0          0.0          0.0            16
+                                   Forecast correct  Plan + AI safety net        9.58                0.0          0.0          0.0            22
+Forecast surprise (forecast clear, actual overcast)       Thermostat 48 C       17.33                0.0          0.0          0.0            58
+Forecast surprise (forecast clear, actual overcast)             Plan only       17.08                3.2         14.7         10.8            24
+Forecast surprise (forecast clear, actual overcast) Plan + simple S3 rule       18.83                0.0          0.0          0.0            32
+Forecast surprise (forecast clear, actual overcast)  Plan + AI safety net       20.00                0.0          0.0          0.0            40
+
+HOW TO READ THIS
+- 'cold L' is hot water drawn while the tank top was below 45 C. The planner only
+  promises comfort in the demand windows (6-9 and 18-21), so judge it on 'in_windows';
+  the thermostat protects every hour, which is a stronger service level.
+- In the surprise case, compare 'Plan only' with the two safety layers: does either
+  remove the cold water, and at what energy cost?
+- The AI is only worth including if it beats the simple S3 rule. Report what you see.
+
+Saved: C:\Users\ratie\OneDrive\Documents\EngineeringProjects\STMaCS\data\processed\twin_ml\plan_ai_test.csv
+Total time: 7.7 min
+
+
+

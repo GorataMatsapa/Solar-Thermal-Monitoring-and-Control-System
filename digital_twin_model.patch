@@ -1,0 +1,145 @@
+--- /tmp/twin_orig.py	2026-11-03 08:37:42.884463522 +0200
++++ utils/digital_twin_model.py	2026-11-03 08:37:52.529061723 +0200
+@@ -98,6 +98,16 @@
+         simulation_duration_minutes=120.0,
+     ):
+ 
++        # HIL / TEST HOOKS - every hook defaults to "off", so the existing pages
++        # behave exactly as before. They are set by the HIL scenario engine.
++        self.irradiance_override = None        # W/m2: replaces the bell curve when not None
++        self.actuator_forced_off = False       # simulated pump actuator failure (command stays ON)
++        self.flow_override = None              # L/min: replaces the pump flow while the pump runs
++        self.solenoid_open = False             # SIMULATION-ONLY diversion / heat-dump valve
++        self.solenoid_dump_w_per_k = 60.0      # EXPERIMENTAL: heat rejected per K of collector excess
++        self.control_collector_override = None  # degC the pump controller sees instead of the true S1
++        self.control_bottom_override = None     # degC the pump controller sees instead of the true S4
++
+         # SYSTEM
+         self.volume_liters = volume_liters
+         self.mass = volume_liters * WATER_DENSITY
+@@ -152,7 +162,8 @@
+ 
+         # HYDRAULICS / PUMP CONTROL
+         self.flow_rate = flow_rate
+-        self.pump_on = flow_rate > 0
++        self.pump_on = flow_rate > 0           # ACTUAL pump state (what the fan/relay shows)
++        self.pump_command = self.pump_on       # what the controller WANTS (differs only in a fault)
+         self.pump_flow_rate = pump_flow_rate
+         self.pump_dt_on = pump_dt_on
+         self.pump_dt_off = pump_dt_off
+@@ -219,6 +230,32 @@
+         self.heater_setpoint = float(setpoint)
+         self.update_heater_state()
+ 
++    # --- HIL / test hooks (see __init__) ---
++    def set_irradiance_override(self, value):
++        """Hold irradiance at a fixed W/m2 (None = back to the bell curve)."""
++        self.irradiance_override = None if value is None else max(0.0, float(value))
++        self.solar_irradiance = self.calculate_solar_irradiance(self.time_seconds)
++
++    def set_actuator_forced_off(self, forced):
++        """Simulated pump failure: command unchanged, actual pump forced OFF."""
++        self.actuator_forced_off = bool(forced)
++        self.update_pump_state()
++
++    def set_flow_override(self, litres_per_min):
++        """Inject a circulation flow (L/min) while the pump runs; None = normal."""
++        self.flow_override = None if litres_per_min is None else max(0.0, float(litres_per_min))
++        self.update_pump_state()
++
++    def set_solenoid(self, is_open):
++        """SIMULATION-ONLY diversion valve. Not a model of any real HOTSET component."""
++        self.solenoid_open = bool(is_open)
++
++    def set_control_inputs(self, collector=None, bottom=None):
++        """Temperatures the pump controller should use (validated sensor readings).
++        None = use the true model temperature."""
++        self.control_collector_override = None if collector is None else float(collector)
++        self.control_bottom_override = None if bottom is None else float(bottom)
++
+     def set_pump_mode(self, mode):
+         """Switch between AUTO, MANUAL_ON and MANUAL_OFF and apply it immediately."""
+         if mode not in PUMP_MODES:
+@@ -237,6 +274,8 @@
+         Simulated (NOT measured) bell-shaped irradiance: rises from zero,
+         peaks mid-simulation, falls back to zero.
+         """
++        if self.irradiance_override is not None:
++            return max(0.0, float(self.irradiance_override))
+         position = (simulation_time_seconds / 60.0) / self.simulation_duration_minutes
+         position = float(np.clip(position, 0.0, 1.0))
+         return max(0.0, self.peak_solar_irradiance * math.sin(math.pi * position))
+@@ -261,21 +300,33 @@
+         ):
+             self.high_limit_active = False
+ 
++        command = self.pump_command
+         if self.high_limit_active:
+-            self.pump_on = False
++            command = False
+         elif self.pump_mode == PUMP_MANUAL_ON:
+-            self.pump_on = True
++            command = True
+         elif self.pump_mode == PUMP_MANUAL_OFF:
+-            self.pump_on = False
++            command = False
+         else:
+-            difference = self.collector_temperature - self.bottom_temperature
++            collector = (self.collector_temperature if self.control_collector_override is None
++                         else self.control_collector_override)
++            bottom = (self.bottom_temperature if self.control_bottom_override is None
++                      else self.control_bottom_override)
++            difference = collector - bottom
+             if difference >= self.pump_dt_on:
+-                self.pump_on = True
++                command = True
+             elif difference <= self.pump_dt_off:
+-                self.pump_on = False
+-            # in between: keep the previous state (hysteresis)
++                command = False
++            # in between: keep the previous command (hysteresis)
+ 
+-        self.flow_rate = self.pump_flow_rate if self.pump_on else 0.0
++        self.pump_command = command
++        # HIL: an actuator fault keeps the COMMAND but forces the ACTUAL pump off
++        self.pump_on = command and not self.actuator_forced_off
++
++        flow = self.pump_flow_rate if self.pump_on else 0.0
++        if self.pump_on and self.flow_override is not None:
++            flow = max(0.0, float(self.flow_override))      # HIL: injected low flow
++        self.flow_rate = flow
+ 
+     # ========================================================
+     # BACKUP HEATER (thermostat)
+@@ -351,8 +402,11 @@
+             * self.solar_irradiance
+         )
+ 
+-        k_total = k_loss + k_fluid
+-        t_equilibrium = (gain + k_loss * ambient + k_fluid * sink) / k_total
++        # SIMULATION-ONLY: an open "solenoid" rejects collector heat to ambient
++        k_dump = self.solenoid_dump_w_per_k if self.solenoid_open else 0.0
++
++        k_total = k_loss + k_fluid + k_dump
++        t_equilibrium = (gain + k_loss * ambient + k_fluid * sink + k_dump * ambient) / k_total
+         tau = self.collector_heat_capacity / k_total
+ 
+         self.collector_temperature = t_equilibrium + (
+@@ -663,6 +717,9 @@
+             "hydraulics": {
+                 "flow_rate": self.flow_rate,
+                 "pump_on": self.pump_on,
++                "pump_command": self.pump_command,
++                "actuator_forced_off": self.actuator_forced_off,
++                "solenoid_open": self.solenoid_open,
+                 "pump_mode": self.pump_mode,
+                 "high_limit_active": self.high_limit_active,
+             },
+@@ -797,4 +854,4 @@
+     result = {key: np.array(values) for key, values in series.items()}
+     # Backward-compatible name used by the existing Digital Twin page.
+     result["temperature"] = result["tank_temperature"]
+-    return result
+\ No newline at end of file
++    return result
+\ No newline at end of file

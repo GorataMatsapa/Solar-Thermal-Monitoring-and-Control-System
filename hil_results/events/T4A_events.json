@@ -1,0 +1,313 @@
+{
+  "run_id": "T4A-20261103-091036",
+  "events": [
+    {
+      "event_id": "F-T4A-20261103-091036-001",
+      "fault_type": "PUMP_FAILURE",
+      "subject": "pump",
+      "source": "injected",
+      "injections": [
+        "pump disabled (stagnation)"
+      ],
+      "injection_start_s": 300.0,
+      "first_condition_s": 310.0,
+      "detection_s": 340.0,
+      "severity": "critical",
+      "peak_severity": "critical",
+      "severity_history": [
+        [
+          340.0,
+          "major"
+        ],
+        [
+          2130.0,
+          "critical"
+        ]
+      ],
+      "measured_at_detection": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.0,
+        "flow_deviation_lpm": 2.0,
+        "flow_deviation_pct": 100.0,
+        "pump_command": true,
+        "pump_actual": false,
+        "collector_c": 51.96
+      },
+      "measured_at_peak": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.0,
+        "flow_deviation_lpm": 2.0,
+        "flow_deviation_pct": 100.0,
+        "pump_command": true,
+        "pump_actual": false,
+        "collector_c": 146.33
+      },
+      "mitigation_actions": [
+        {
+          "t": 340.0,
+          "event_id": "F-T4A-20261103-091036-001",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "PUMP_FAILURE major"
+        },
+        {
+          "t": 340.0,
+          "event_id": "F-T4A-20261103-091036-001",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        },
+        {
+          "t": 2130.0,
+          "event_id": "F-T4A-20261103-091036-001",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "PUMP_FAILURE critical"
+        },
+        {
+          "t": 2130.0,
+          "event_id": "F-T4A-20261103-091036-001",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T4A-20261103-091036-001-fault-major",
+          "kind": "fault-major",
+          "status": "unavailable"
+        },
+        {
+          "sms_id": "S-F-T4A-20261103-091036-001-fault-critical",
+          "kind": "fault-critical",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": null,
+      "status": "ACTIVE",
+      "duration_s": 2390.0,
+      "detection_epoch": 1793690176.6397376,
+      "first_condition_epoch": 1793690146.6397376,
+      "recovery_epoch": null,
+      "detection_delay_s": 40.0,
+      "time_to_recover_s": null
+    },
+    {
+      "event_id": "F-T4A-20261103-091036-002",
+      "fault_type": "STAGNATION",
+      "subject": "S1",
+      "source": "injected",
+      "injections": [
+        "pump disabled (stagnation)"
+      ],
+      "injection_start_s": 300.0,
+      "first_condition_s": 660.0,
+      "detection_s": 680.0,
+      "severity": "critical",
+      "peak_severity": "critical",
+      "severity_history": [
+        [
+          680.0,
+          "warning"
+        ],
+        [
+          1350.0,
+          "major"
+        ],
+        [
+          2130.0,
+          "critical"
+        ]
+      ],
+      "measured_at_detection": {
+        "collector_c": 81.86,
+        "tank_top_c": 49.93,
+        "tank_bottom_c": 35.27,
+        "collector_minus_tank_bottom_k": 46.59,
+        "collector_minus_tank_top_k": 31.93,
+        "rise_rate_k_per_min": 4.87,
+        "pump_command": true,
+        "pump_actual": false,
+        "measured_flow_lpm": 0.0,
+        "trigger": "rate_of_rise"
+      },
+      "measured_at_peak": {
+        "collector_c": 146.33,
+        "tank_top_c": 49.7,
+        "tank_bottom_c": 35.23,
+        "collector_minus_tank_bottom_k": 111.11,
+        "collector_minus_tank_top_k": 96.63,
+        "rise_rate_k_per_min": 0.48,
+        "pump_command": true,
+        "pump_actual": false,
+        "measured_flow_lpm": 0.0,
+        "trigger": "temperature"
+      },
+      "mitigation_actions": [
+        {
+          "t": 680.0,
+          "event_id": "F-T4A-20261103-091036-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "STAGNATION warning"
+        },
+        {
+          "t": 680.0,
+          "event_id": "F-T4A-20261103-091036-002",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        },
+        {
+          "t": 1350.0,
+          "event_id": "F-T4A-20261103-091036-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "STAGNATION major"
+        },
+        {
+          "t": 2130.0,
+          "event_id": "F-T4A-20261103-091036-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "STAGNATION critical"
+        },
+        {
+          "t": 2130.0,
+          "event_id": "F-T4A-20261103-091036-002",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T4A-20261103-091036-002-fault-warning",
+          "kind": "fault-warning",
+          "status": "unavailable"
+        },
+        {
+          "sms_id": "S-F-T4A-20261103-091036-002-fault-critical",
+          "kind": "fault-critical",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": null,
+      "status": "ACTIVE",
+      "duration_s": 2040.0,
+      "detection_epoch": 1793690516.6397376,
+      "first_condition_epoch": 1793690496.6397376,
+      "recovery_epoch": null,
+      "detection_delay_s": 380.0,
+      "time_to_recover_s": null
+    }
+  ],
+  "actions": [
+    {
+      "t": 340.0,
+      "event_id": "F-T4A-20261103-091036-001",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "PUMP_FAILURE major"
+    },
+    {
+      "t": 340.0,
+      "event_id": "F-T4A-20261103-091036-001",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 680.0,
+      "event_id": "F-T4A-20261103-091036-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "STAGNATION warning"
+    },
+    {
+      "t": 680.0,
+      "event_id": "F-T4A-20261103-091036-002",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 1350.0,
+      "event_id": "F-T4A-20261103-091036-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "STAGNATION major"
+    },
+    {
+      "t": 2130.0,
+      "event_id": "F-T4A-20261103-091036-001",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "PUMP_FAILURE critical"
+    },
+    {
+      "t": 2130.0,
+      "event_id": "F-T4A-20261103-091036-001",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 2130.0,
+      "event_id": "F-T4A-20261103-091036-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "STAGNATION critical"
+    },
+    {
+      "t": 2130.0,
+      "event_id": "F-T4A-20261103-091036-002",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    }
+  ],
+  "sms": [
+    {
+      "sms_id": "S-F-T4A-20261103-091036-001-fault-major",
+      "event_id": "F-T4A-20261103-091036-001",
+      "kind": "fault-major",
+      "text": "STMaCS HIL TEST PUMP_FAILURE MAJOR at t+05:40 S1 51.96C flow 0.0 L/min",
+      "created_s": 340.0,
+      "updated_s": 340.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T4A-20261103-091036-002-fault-warning",
+      "event_id": "F-T4A-20261103-091036-002",
+      "kind": "fault-warning",
+      "text": "STMaCS HIL TEST STAGNATION WARNING at t+11:20 S1 81.86C flow 0.0 L/min",
+      "created_s": 680.0,
+      "updated_s": 680.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T4A-20261103-091036-001-fault-critical",
+      "event_id": "F-T4A-20261103-091036-001",
+      "kind": "fault-critical",
+      "text": "STMaCS HIL TEST PUMP_FAILURE CRITICAL at t+05:40 S1 51.96C flow 0.0 L/min",
+      "created_s": 2130.0,
+      "updated_s": 2130.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T4A-20261103-091036-002-fault-critical",
+      "event_id": "F-T4A-20261103-091036-002",
+      "kind": "fault-critical",
+      "text": "STMaCS HIL TEST STAGNATION CRITICAL at t+11:20 S1 81.86C flow 0.0 L/min",
+      "created_s": 2130.0,
+      "updated_s": 2130.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    }
+  ]
+}

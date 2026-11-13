@@ -731,7 +731,7 @@ It only identifies:
 - Extreme thermal values
 - Potential sensor anomalies
 
-We will decide how to clean the data AFTER reviewing these results.
+
 """)
 
 print("=" * 72)

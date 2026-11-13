@@ -1,0 +1,459 @@
+{
+  "run_id": "T5-20261103-091038",
+  "events": [
+    {
+      "event_id": "F-T5-20261103-091038-001",
+      "fault_type": "SENSOR_FAULT",
+      "subject": "S3",
+      "source": "injected",
+      "injections": [
+        "S3 disconnected (-127 C)"
+      ],
+      "injection_start_s": 480.0,
+      "first_condition_s": 490.0,
+      "detection_s": 510.0,
+      "severity": "warning",
+      "peak_severity": "warning",
+      "severity_history": [
+        [
+          510.0,
+          "warning"
+        ]
+      ],
+      "measured_at_detection": {
+        "sensor": "S3",
+        "reason": "out_of_range",
+        "raw_value": -127.0,
+        "last_good_used": true,
+        "quality": "held",
+        "value_used_by_controller": 49.95,
+        "source": "injected"
+      },
+      "measured_at_peak": {
+        "sensor": "S3",
+        "reason": "out_of_range",
+        "raw_value": -127.0,
+        "last_good_used": false,
+        "quality": "invalid",
+        "value_used_by_controller": null,
+        "source": "injected"
+      },
+      "mitigation_actions": [
+        {
+          "t": 510.0,
+          "event_id": "F-T5-20261103-091038-001",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "SENSOR_FAULT warning"
+        },
+        {
+          "t": 510.0,
+          "event_id": "F-T5-20261103-091038-001",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        },
+        {
+          "t": 510.0,
+          "event_id": "F-T5-20261103-091038-001",
+          "action": "VALIDATION_FALLBACK",
+          "domain": "SOFTWARE",
+          "detail": "S3 marked unreliable; invalid value blocked from controllers"
+        },
+        {
+          "t": 910.0,
+          "event_id": "F-T5-20261103-091038-001",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "recovery, status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T5-20261103-091038-001-fault-warning",
+          "kind": "fault-warning",
+          "status": "unavailable"
+        },
+        {
+          "sms_id": "S-F-T5-20261103-091038-001-recovery",
+          "kind": "recovery",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": 910.0,
+      "status": "RESOLVED",
+      "duration_s": 420.0,
+      "detection_epoch": 1793690348.6397376,
+      "first_condition_epoch": 1793690328.6397376,
+      "recovery_epoch": 1793690748.6397376,
+      "detection_delay_s": 30.0,
+      "time_to_recover_s": 400.0
+    },
+    {
+      "event_id": "F-T5-20261103-091038-002",
+      "fault_type": "SENSOR_FAULT",
+      "subject": "S1",
+      "source": "injected",
+      "injections": [
+        "S1 no data"
+      ],
+      "injection_start_s": 1080.0,
+      "first_condition_s": 1090.0,
+      "detection_s": 1110.0,
+      "severity": "major",
+      "peak_severity": "major",
+      "severity_history": [
+        [
+          1110.0,
+          "major"
+        ]
+      ],
+      "measured_at_detection": {
+        "sensor": "S1",
+        "reason": "missing",
+        "raw_value": null,
+        "last_good_used": true,
+        "quality": "held",
+        "value_used_by_controller": 55.36,
+        "source": "injected"
+      },
+      "measured_at_peak": {
+        "sensor": "S1",
+        "reason": "missing",
+        "raw_value": null,
+        "last_good_used": false,
+        "quality": "invalid",
+        "value_used_by_controller": null,
+        "source": "injected"
+      },
+      "mitigation_actions": [
+        {
+          "t": 1110.0,
+          "event_id": "F-T5-20261103-091038-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "SENSOR_FAULT major"
+        },
+        {
+          "t": 1110.0,
+          "event_id": "F-T5-20261103-091038-002",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        },
+        {
+          "t": 1110.0,
+          "event_id": "F-T5-20261103-091038-002",
+          "action": "VALIDATION_FALLBACK",
+          "domain": "SOFTWARE",
+          "detail": "S1 marked unreliable; invalid value blocked from controllers"
+        },
+        {
+          "t": 1510.0,
+          "event_id": "F-T5-20261103-091038-002",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "recovery, status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T5-20261103-091038-002-fault-major",
+          "kind": "fault-major",
+          "status": "unavailable"
+        },
+        {
+          "sms_id": "S-F-T5-20261103-091038-002-recovery",
+          "kind": "recovery",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": 1510.0,
+      "status": "RESOLVED",
+      "duration_s": 420.0,
+      "detection_epoch": 1793690948.6397376,
+      "first_condition_epoch": 1793690928.6397376,
+      "recovery_epoch": 1793691348.6397376,
+      "detection_delay_s": 30.0,
+      "time_to_recover_s": 400.0
+    },
+    {
+      "event_id": "F-T5-20261103-091038-003",
+      "fault_type": "SENSOR_FAULT",
+      "subject": "S4",
+      "source": "injected",
+      "injections": [
+        "S4 implausible (250 C)"
+      ],
+      "injection_start_s": 1680.0,
+      "first_condition_s": 1690.0,
+      "detection_s": 1710.0,
+      "severity": "major",
+      "peak_severity": "major",
+      "severity_history": [
+        [
+          1710.0,
+          "major"
+        ]
+      ],
+      "measured_at_detection": {
+        "sensor": "S4",
+        "reason": "out_of_range",
+        "raw_value": 250.0,
+        "last_good_used": true,
+        "quality": "held",
+        "value_used_by_controller": 38.32,
+        "source": "injected"
+      },
+      "measured_at_peak": {
+        "sensor": "S4",
+        "reason": "out_of_range",
+        "raw_value": 250.0,
+        "last_good_used": false,
+        "quality": "invalid",
+        "value_used_by_controller": null,
+        "source": "injected"
+      },
+      "mitigation_actions": [
+        {
+          "t": 1710.0,
+          "event_id": "F-T5-20261103-091038-003",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "SENSOR_FAULT major"
+        },
+        {
+          "t": 1710.0,
+          "event_id": "F-T5-20261103-091038-003",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        },
+        {
+          "t": 1710.0,
+          "event_id": "F-T5-20261103-091038-003",
+          "action": "VALIDATION_FALLBACK",
+          "domain": "SOFTWARE",
+          "detail": "S4 marked unreliable; invalid value blocked from controllers"
+        },
+        {
+          "t": 2110.0,
+          "event_id": "F-T5-20261103-091038-003",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "recovery, status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T5-20261103-091038-003-fault-major",
+          "kind": "fault-major",
+          "status": "unavailable"
+        },
+        {
+          "sms_id": "S-F-T5-20261103-091038-003-recovery",
+          "kind": "recovery",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": 2110.0,
+      "status": "RESOLVED",
+      "duration_s": 420.0,
+      "detection_epoch": 1793691548.6397376,
+      "first_condition_epoch": 1793691528.6397376,
+      "recovery_epoch": 1793691948.6397376,
+      "detection_delay_s": 30.0,
+      "time_to_recover_s": 400.0
+    }
+  ],
+  "actions": [
+    {
+      "t": 510.0,
+      "event_id": "F-T5-20261103-091038-001",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "SENSOR_FAULT warning"
+    },
+    {
+      "t": 510.0,
+      "event_id": "F-T5-20261103-091038-001",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 510.0,
+      "event_id": "F-T5-20261103-091038-001",
+      "action": "VALIDATION_FALLBACK",
+      "domain": "SOFTWARE",
+      "detail": "S3 marked unreliable; invalid value blocked from controllers"
+    },
+    {
+      "t": 610.0,
+      "event_id": null,
+      "action": "HEATER_FAILSAFE_OFF",
+      "domain": "PHYSICAL",
+      "detail": "S3 invalid beyond the hold time: backup heater commanded OFF (fail-safe)"
+    },
+    {
+      "t": 850.0,
+      "event_id": null,
+      "action": "HEATER_FAILSAFE_RELEASED",
+      "domain": "PHYSICAL",
+      "detail": "S3 valid again: hot-water controller resumed"
+    },
+    {
+      "t": 910.0,
+      "event_id": "F-T5-20261103-091038-001",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "recovery, status=unavailable"
+    },
+    {
+      "t": 1110.0,
+      "event_id": "F-T5-20261103-091038-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "SENSOR_FAULT major"
+    },
+    {
+      "t": 1110.0,
+      "event_id": "F-T5-20261103-091038-002",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 1110.0,
+      "event_id": "F-T5-20261103-091038-002",
+      "action": "VALIDATION_FALLBACK",
+      "domain": "SOFTWARE",
+      "detail": "S1 marked unreliable; invalid value blocked from controllers"
+    },
+    {
+      "t": 1210.0,
+      "event_id": null,
+      "action": "PUMP_FALLBACK_OFF",
+      "domain": "PHYSICAL",
+      "detail": "S1/S4 invalid beyond the hold time: pump commanded OFF (relay)"
+    },
+    {
+      "t": 1450.0,
+      "event_id": null,
+      "action": "PUMP_FALLBACK_RELEASED",
+      "domain": "PHYSICAL",
+      "detail": "S1 and S4 valid again: back to differential-temperature control"
+    },
+    {
+      "t": 1510.0,
+      "event_id": "F-T5-20261103-091038-002",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "recovery, status=unavailable"
+    },
+    {
+      "t": 1710.0,
+      "event_id": "F-T5-20261103-091038-003",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "SENSOR_FAULT major"
+    },
+    {
+      "t": 1710.0,
+      "event_id": "F-T5-20261103-091038-003",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 1710.0,
+      "event_id": "F-T5-20261103-091038-003",
+      "action": "VALIDATION_FALLBACK",
+      "domain": "SOFTWARE",
+      "detail": "S4 marked unreliable; invalid value blocked from controllers"
+    },
+    {
+      "t": 1810.0,
+      "event_id": null,
+      "action": "PUMP_FALLBACK_OFF",
+      "domain": "PHYSICAL",
+      "detail": "S1/S4 invalid beyond the hold time: pump commanded OFF (relay)"
+    },
+    {
+      "t": 2050.0,
+      "event_id": null,
+      "action": "PUMP_FALLBACK_RELEASED",
+      "domain": "PHYSICAL",
+      "detail": "S1 and S4 valid again: back to differential-temperature control"
+    },
+    {
+      "t": 2110.0,
+      "event_id": "F-T5-20261103-091038-003",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "recovery, status=unavailable"
+    }
+  ],
+  "sms": [
+    {
+      "sms_id": "S-F-T5-20261103-091038-001-fault-warning",
+      "event_id": "F-T5-20261103-091038-001",
+      "kind": "fault-warning",
+      "text": "STMaCS HIL TEST SENSOR_FAULT WARNING at t+08:30 S3 out_of_range",
+      "created_s": 510.0,
+      "updated_s": 510.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T5-20261103-091038-001-recovery",
+      "event_id": "F-T5-20261103-091038-001",
+      "kind": "recovery",
+      "text": "STMaCS HIL TEST SENSOR_FAULT RESOLVED at t+15:10",
+      "created_s": 910.0,
+      "updated_s": 910.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T5-20261103-091038-002-fault-major",
+      "event_id": "F-T5-20261103-091038-002",
+      "kind": "fault-major",
+      "text": "STMaCS HIL TEST SENSOR_FAULT MAJOR at t+18:30 S1 missing",
+      "created_s": 1110.0,
+      "updated_s": 1110.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T5-20261103-091038-002-recovery",
+      "event_id": "F-T5-20261103-091038-002",
+      "kind": "recovery",
+      "text": "STMaCS HIL TEST SENSOR_FAULT RESOLVED at t+25:10",
+      "created_s": 1510.0,
+      "updated_s": 1510.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T5-20261103-091038-003-fault-major",
+      "event_id": "F-T5-20261103-091038-003",
+      "kind": "fault-major",
+      "text": "STMaCS HIL TEST SENSOR_FAULT MAJOR at t+28:30 S4 out_of_range",
+      "created_s": 1710.0,
+      "updated_s": 1710.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T5-20261103-091038-003-recovery",
+      "event_id": "F-T5-20261103-091038-003",
+      "kind": "recovery",
+      "text": "STMaCS HIL TEST SENSOR_FAULT RESOLVED at t+35:10",
+      "created_s": 2110.0,
+      "updated_s": 2110.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    }
+  ]
+}

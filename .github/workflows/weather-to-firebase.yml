@@ -1,4 +1,4 @@
-# Put this file in your repository at .github/workflows/weather-to-firebase.yml
+# Put this file in repository at .github/workflows/weather-to-firebase.yml
 # and weather_to_firebase.py in the repository root.
 # Add two repository secrets (Settings > Secrets and variables > Actions):
 #   FIREBASE_SERVICE_ACCOUNT_JSON  (the whole service-account key file content)

@@ -1,0 +1,73 @@
+{
+  "created": "2026-10-29T02:40:24",
+  "sklearn_version": "1.9.0",
+  "source_installation": "STMaCS system 455 (University of Botswana)",
+  "train_period": [
+    "2025-08-27 01:01:10",
+    "2026-06-14 23:48:19"
+  ],
+  "test_period": [
+    "2026-06-15 00:53:19",
+    "2026-08-27 03:06:05"
+  ],
+  "production_trained_on": "train + test periods",
+  "honest_evaluation": "evaluation build: trained on train only, margins frozen from validation, scored on test",
+  "evaluation_results": [
+    {
+      "horizon_h": 1,
+      "margin": -0.5,
+      "cushion": 1.0,
+      "n_test": 20947,
+      "n_test_events": 1518,
+      "miss_at_margin": 0.10540184453227931,
+      "false_alarm_at_margin": 0.004735189664933861,
+      "miss_with_cushion": 0.04084321475625823,
+      "false_alarm_with_cushion": 0.019815739358690618,
+      "coverage_q10": 0.09753186613834916
+    },
+    {
+      "horizon_h": 2,
+      "margin": -0.5,
+      "cushion": 1.0,
+      "n_test": 20919,
+      "n_test_events": 1513,
+      "miss_at_margin": 0.15135492399206874,
+      "false_alarm_at_margin": 0.016644336803050604,
+      "miss_with_cushion": 0.10575016523463318,
+      "false_alarm_with_cushion": 0.02880552406472225,
+      "coverage_q10": 0.15736889908695445
+    },
+    {
+      "horizon_h": 4,
+      "margin": 0.5,
+      "cushion": 1.0,
+      "n_test": 20875,
+      "n_test_events": 1513,
+      "miss_at_margin": 0.14474553866490417,
+      "false_alarm_at_margin": 0.039303790930688975,
+      "miss_with_cushion": 0.1130204890945142,
+      "false_alarm_with_cushion": 0.052422270426608825,
+      "coverage_q10": 0.2151377245508982
+    },
+    {
+      "horizon_h": 8,
+      "margin": 2.5,
+      "cushion": 1.0,
+      "n_test": 20811,
+      "n_test_events": 1522,
+      "miss_at_margin": 0.133377135348226,
+      "false_alarm_at_margin": 0.07672766861942039,
+      "miss_with_cushion": 0.10840998685939553,
+      "false_alarm_with_cushion": 0.10581160246772772,
+      "coverage_q10": 0.24587958291288262
+    }
+  ],
+  "caveats": [
+    "Single installation (455), about one year of data, one winter test.",
+    "Test season had fewer low-temperature events than validation.",
+    "Consecutive 5-minute rows are highly correlated; events are fewer than rows suggest.",
+    "No weather inputs yet; solar gain is inferred from collector/tank state.",
+    "Heater effect is NOT modelled here; use physics in the controller.",
+    "12-hour horizon dropped: ML added nothing over the hour-of-day baseline."
+  ]
+}

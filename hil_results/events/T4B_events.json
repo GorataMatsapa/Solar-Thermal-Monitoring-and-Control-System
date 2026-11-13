@@ -1,0 +1,276 @@
+{
+  "run_id": "T4B-20261103-091037",
+  "events": [
+    {
+      "event_id": "F-T4B-20261103-091037-001",
+      "fault_type": "PUMP_FAILURE",
+      "subject": "pump",
+      "source": "injected",
+      "injections": [
+        "pump disabled (stagnation)"
+      ],
+      "injection_start_s": 300.0,
+      "first_condition_s": 310.0,
+      "detection_s": 340.0,
+      "severity": "major",
+      "peak_severity": "major",
+      "severity_history": [
+        [
+          340.0,
+          "major"
+        ]
+      ],
+      "measured_at_detection": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.0,
+        "flow_deviation_lpm": 2.0,
+        "flow_deviation_pct": 100.0,
+        "pump_command": true,
+        "pump_actual": false,
+        "collector_c": 51.96
+      },
+      "measured_at_peak": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.0,
+        "flow_deviation_lpm": 2.0,
+        "flow_deviation_pct": 100.0,
+        "pump_command": true,
+        "pump_actual": false,
+        "collector_c": 61.56
+      },
+      "mitigation_actions": [
+        {
+          "t": 340.0,
+          "event_id": "F-T4B-20261103-091037-001",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "PUMP_FAILURE major"
+        },
+        {
+          "t": 340.0,
+          "event_id": "F-T4B-20261103-091037-001",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T4B-20261103-091037-001-fault-major",
+          "kind": "fault-major",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": null,
+      "status": "ACTIVE",
+      "duration_s": 2390.0,
+      "detection_epoch": 1793690177.6397376,
+      "first_condition_epoch": 1793690147.6397376,
+      "recovery_epoch": null,
+      "detection_delay_s": 40.0,
+      "time_to_recover_s": null
+    },
+    {
+      "event_id": "F-T4B-20261103-091037-002",
+      "fault_type": "STAGNATION",
+      "subject": "S1",
+      "source": "injected",
+      "injections": [
+        "pump disabled (stagnation)"
+      ],
+      "injection_start_s": 300.0,
+      "first_condition_s": 660.0,
+      "detection_s": 680.0,
+      "severity": "major",
+      "peak_severity": "major",
+      "severity_history": [
+        [
+          680.0,
+          "warning"
+        ],
+        [
+          1350.0,
+          "major"
+        ]
+      ],
+      "measured_at_detection": {
+        "collector_c": 81.86,
+        "tank_top_c": 49.93,
+        "tank_bottom_c": 35.27,
+        "collector_minus_tank_bottom_k": 46.59,
+        "collector_minus_tank_top_k": 31.93,
+        "rise_rate_k_per_min": 4.87,
+        "pump_command": true,
+        "pump_actual": false,
+        "measured_flow_lpm": 0.0,
+        "trigger": "rate_of_rise"
+      },
+      "measured_at_peak": {
+        "collector_c": 120.3,
+        "tank_top_c": 49.8,
+        "tank_bottom_c": 35.27,
+        "collector_minus_tank_bottom_k": 85.02,
+        "collector_minus_tank_top_k": 70.5,
+        "rise_rate_k_per_min": 2.43,
+        "pump_command": true,
+        "pump_actual": false,
+        "measured_flow_lpm": 0.0,
+        "trigger": "temperature"
+      },
+      "mitigation_actions": [
+        {
+          "t": 680.0,
+          "event_id": "F-T4B-20261103-091037-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "STAGNATION warning"
+        },
+        {
+          "t": 680.0,
+          "event_id": "F-T4B-20261103-091037-002",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        },
+        {
+          "t": 1350.0,
+          "event_id": "F-T4B-20261103-091037-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "STAGNATION major"
+        },
+        {
+          "t": 1350.0,
+          "event_id": "F-T4B-20261103-091037-002",
+          "action": "SIM_SOLAR_INPUT_REDUCED",
+          "domain": "SIMULATION",
+          "detail": "simulated collector shading, irradiance x0.3"
+        },
+        {
+          "t": 1350.0,
+          "event_id": "F-T4B-20261103-091037-002",
+          "action": "SIM_SOLENOID_OPEN",
+          "domain": "SIMULATION",
+          "detail": "simulated heat-dump valve, 15.0 W/K (not a real HOTSET component)"
+        },
+        {
+          "t": 1800.0,
+          "event_id": "F-T4B-20261103-091037-002",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "recovery, status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T4B-20261103-091037-002-fault-warning",
+          "kind": "fault-warning",
+          "status": "unavailable"
+        },
+        {
+          "sms_id": "S-F-T4B-20261103-091037-002-recovery",
+          "kind": "recovery",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": 1800.0,
+      "status": "RESOLVED",
+      "duration_s": 1140.0,
+      "detection_epoch": 1793690517.6397376,
+      "first_condition_epoch": 1793690497.6397376,
+      "recovery_epoch": 1793691637.6397376,
+      "detection_delay_s": 380.0,
+      "time_to_recover_s": 1120.0
+    }
+  ],
+  "actions": [
+    {
+      "t": 340.0,
+      "event_id": "F-T4B-20261103-091037-001",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "PUMP_FAILURE major"
+    },
+    {
+      "t": 340.0,
+      "event_id": "F-T4B-20261103-091037-001",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 680.0,
+      "event_id": "F-T4B-20261103-091037-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "STAGNATION warning"
+    },
+    {
+      "t": 680.0,
+      "event_id": "F-T4B-20261103-091037-002",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 1350.0,
+      "event_id": "F-T4B-20261103-091037-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "STAGNATION major"
+    },
+    {
+      "t": 1350.0,
+      "event_id": "F-T4B-20261103-091037-002",
+      "action": "SIM_SOLAR_INPUT_REDUCED",
+      "domain": "SIMULATION",
+      "detail": "simulated collector shading, irradiance x0.3"
+    },
+    {
+      "t": 1350.0,
+      "event_id": "F-T4B-20261103-091037-002",
+      "action": "SIM_SOLENOID_OPEN",
+      "domain": "SIMULATION",
+      "detail": "simulated heat-dump valve, 15.0 W/K (not a real HOTSET component)"
+    },
+    {
+      "t": 1800.0,
+      "event_id": "F-T4B-20261103-091037-002",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "recovery, status=unavailable"
+    }
+  ],
+  "sms": [
+    {
+      "sms_id": "S-F-T4B-20261103-091037-001-fault-major",
+      "event_id": "F-T4B-20261103-091037-001",
+      "kind": "fault-major",
+      "text": "STMaCS HIL TEST PUMP_FAILURE MAJOR at t+05:40 S1 51.96C flow 0.0 L/min",
+      "created_s": 340.0,
+      "updated_s": 340.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T4B-20261103-091037-002-fault-warning",
+      "event_id": "F-T4B-20261103-091037-002",
+      "kind": "fault-warning",
+      "text": "STMaCS HIL TEST STAGNATION WARNING at t+11:20 S1 81.86C flow 0.0 L/min",
+      "created_s": 680.0,
+      "updated_s": 680.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T4B-20261103-091037-002-recovery",
+      "event_id": "F-T4B-20261103-091037-002",
+      "kind": "recovery",
+      "text": "STMaCS HIL TEST STAGNATION RESOLVED at t+30:00",
+      "created_s": 1800.0,
+      "updated_s": 1800.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    }
+  ]
+}

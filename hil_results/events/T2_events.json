@@ -1,0 +1,247 @@
+{
+  "run_id": "T2-20261103-091034",
+  "events": [
+    {
+      "event_id": "F-T2-20261103-091034-001",
+      "fault_type": "PUMP_FAILURE",
+      "subject": "pump",
+      "source": "injected",
+      "injections": [
+        "pump actuator failure"
+      ],
+      "injection_start_s": 600.0,
+      "first_condition_s": 610.0,
+      "detection_s": 640.0,
+      "severity": "major",
+      "peak_severity": "major",
+      "severity_history": [
+        [
+          640.0,
+          "major"
+        ]
+      ],
+      "measured_at_detection": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.0,
+        "flow_deviation_lpm": 2.0,
+        "flow_deviation_pct": 100.0,
+        "pump_command": true,
+        "pump_actual": false,
+        "collector_c": 56.43
+      },
+      "measured_at_peak": {
+        "expected_flow_lpm": 2.0,
+        "measured_flow_lpm": 0.0,
+        "flow_deviation_lpm": 2.0,
+        "flow_deviation_pct": 100.0,
+        "pump_command": true,
+        "pump_actual": false,
+        "collector_c": 108.5
+      },
+      "mitigation_actions": [
+        {
+          "t": 640.0,
+          "event_id": "F-T2-20261103-091034-001",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "PUMP_FAILURE major"
+        },
+        {
+          "t": 640.0,
+          "event_id": "F-T2-20261103-091034-001",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T2-20261103-091034-001-fault-major",
+          "kind": "fault-major",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": null,
+      "status": "ACTIVE",
+      "duration_s": 1790.0,
+      "detection_epoch": 1793690474.6397376,
+      "first_condition_epoch": 1793690444.6397376,
+      "recovery_epoch": null,
+      "detection_delay_s": 40.0,
+      "time_to_recover_s": null
+    },
+    {
+      "event_id": "F-T2-20261103-091034-002",
+      "fault_type": "STAGNATION",
+      "subject": "S1",
+      "source": "injected",
+      "injections": [
+        "pump actuator failure"
+      ],
+      "injection_start_s": 600.0,
+      "first_condition_s": 1000.0,
+      "detection_s": 1020.0,
+      "severity": "major",
+      "peak_severity": "major",
+      "severity_history": [
+        [
+          1020.0,
+          "warning"
+        ],
+        [
+          2290.0,
+          "major"
+        ]
+      ],
+      "measured_at_detection": {
+        "collector_c": 81.22,
+        "tank_top_c": 49.92,
+        "tank_bottom_c": 36.04,
+        "collector_minus_tank_bottom_k": 45.19,
+        "collector_minus_tank_top_k": 31.3,
+        "rise_rate_k_per_min": 3.44,
+        "pump_command": true,
+        "pump_actual": false,
+        "measured_flow_lpm": 0.0,
+        "trigger": "rate_of_rise"
+      },
+      "measured_at_peak": {
+        "collector_c": 120.05,
+        "tank_top_c": 49.77,
+        "tank_bottom_c": 35.92,
+        "collector_minus_tank_bottom_k": 84.12,
+        "collector_minus_tank_top_k": 70.27,
+        "rise_rate_k_per_min": 0.91,
+        "pump_command": true,
+        "pump_actual": false,
+        "measured_flow_lpm": 0.0,
+        "trigger": "temperature"
+      },
+      "mitigation_actions": [
+        {
+          "t": 1020.0,
+          "event_id": "F-T2-20261103-091034-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "STAGNATION warning"
+        },
+        {
+          "t": 1020.0,
+          "event_id": "F-T2-20261103-091034-002",
+          "action": "SMS_REQUESTED",
+          "domain": "NOTIFICATION",
+          "detail": "status=unavailable"
+        },
+        {
+          "t": 2290.0,
+          "event_id": "F-T2-20261103-091034-002",
+          "action": "ALARM_RAISED",
+          "domain": "NOTIFICATION",
+          "detail": "STAGNATION major"
+        },
+        {
+          "t": 2290.0,
+          "event_id": "F-T2-20261103-091034-002",
+          "action": "SIM_SOLAR_INPUT_REDUCED",
+          "domain": "SIMULATION",
+          "detail": "simulated collector shading, irradiance x0.3"
+        },
+        {
+          "t": 2290.0,
+          "event_id": "F-T2-20261103-091034-002",
+          "action": "SIM_SOLENOID_OPEN",
+          "domain": "SIMULATION",
+          "detail": "simulated heat-dump valve, 15.0 W/K (not a real HOTSET component)"
+        }
+      ],
+      "sms": [
+        {
+          "sms_id": "S-F-T2-20261103-091034-002-fault-warning",
+          "kind": "fault-warning",
+          "status": "unavailable"
+        }
+      ],
+      "recovery_s": null,
+      "status": "MITIGATING",
+      "duration_s": 1400.0,
+      "detection_epoch": 1793690854.6397376,
+      "first_condition_epoch": 1793690834.6397376,
+      "recovery_epoch": null,
+      "detection_delay_s": 420.0,
+      "time_to_recover_s": null
+    }
+  ],
+  "actions": [
+    {
+      "t": 640.0,
+      "event_id": "F-T2-20261103-091034-001",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "PUMP_FAILURE major"
+    },
+    {
+      "t": 640.0,
+      "event_id": "F-T2-20261103-091034-001",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 1020.0,
+      "event_id": "F-T2-20261103-091034-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "STAGNATION warning"
+    },
+    {
+      "t": 1020.0,
+      "event_id": "F-T2-20261103-091034-002",
+      "action": "SMS_REQUESTED",
+      "domain": "NOTIFICATION",
+      "detail": "status=unavailable"
+    },
+    {
+      "t": 2290.0,
+      "event_id": "F-T2-20261103-091034-002",
+      "action": "ALARM_RAISED",
+      "domain": "NOTIFICATION",
+      "detail": "STAGNATION major"
+    },
+    {
+      "t": 2290.0,
+      "event_id": "F-T2-20261103-091034-002",
+      "action": "SIM_SOLAR_INPUT_REDUCED",
+      "domain": "SIMULATION",
+      "detail": "simulated collector shading, irradiance x0.3"
+    },
+    {
+      "t": 2290.0,
+      "event_id": "F-T2-20261103-091034-002",
+      "action": "SIM_SOLENOID_OPEN",
+      "domain": "SIMULATION",
+      "detail": "simulated heat-dump valve, 15.0 W/K (not a real HOTSET component)"
+    }
+  ],
+  "sms": [
+    {
+      "sms_id": "S-F-T2-20261103-091034-001-fault-major",
+      "event_id": "F-T2-20261103-091034-001",
+      "kind": "fault-major",
+      "text": "STMaCS HIL TEST PUMP_FAILURE MAJOR at t+10:40 S1 56.43C flow 0.0 L/min",
+      "created_s": 640.0,
+      "updated_s": 640.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    },
+    {
+      "sms_id": "S-F-T2-20261103-091034-002-fault-warning",
+      "event_id": "F-T2-20261103-091034-002",
+      "kind": "fault-warning",
+      "text": "STMaCS HIL TEST STAGNATION WARNING at t+17:00 S1 81.22C flow 0.0 L/min",
+      "created_s": 1020.0,
+      "updated_s": 1020.0,
+      "status": "unavailable",
+      "detail": "no modem integrated yet"
+    }
+  ]
+}

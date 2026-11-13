@@ -1,0 +1,76 @@
+{
+  "created": "2026-10-30T03:52:30",
+  "sklearn_version": "1.9.0",
+  "source_installation": "STMaCS system 455 (University of Botswana)",
+  "procedure": "fit on earliest 80% of train+test timeline; margin chosen on most recent 20%; same fitted models shipped, no retraining",
+  "calibration_results": [
+    {
+      "horizon_h": 1,
+      "margin": 0.25,
+      "reachable": true,
+      "cushion": 1.0,
+      "n_calibration_rows": 20959,
+      "n_calibration_events": 1518,
+      "miss_at_margin": 0.04808959156785244,
+      "false_alarm_at_margin": 0.016511496322205648,
+      "miss_with_cushion": 0.026350461133069828,
+      "false_alarm_with_cushion": 0.031839925929736126,
+      "coverage_q10": 0.09408845841881769,
+      "worst_chunk_miss": 0.0893854748603352
+    },
+    {
+      "horizon_h": 2,
+      "margin": 2.75,
+      "reachable": true,
+      "cushion": 1.0,
+      "n_calibration_rows": 20937,
+      "n_calibration_events": 1513,
+      "miss_at_margin": 0.0495703899537343,
+      "false_alarm_at_margin": 0.05585873146622735,
+      "miss_with_cushion": 0.03040317250495704,
+      "false_alarm_with_cushion": 0.07223023064250411,
+      "coverage_q10": 0.15503653818598653,
+      "worst_chunk_miss": 0.4827586206896552
+    },
+    {
+      "horizon_h": 4,
+      "margin": 3.5,
+      "reachable": true,
+      "cushion": 1.0,
+      "n_calibration_rows": 20920,
+      "n_calibration_events": 1513,
+      "miss_at_margin": 0.0495703899537343,
+      "false_alarm_at_margin": 0.08733961972484156,
+      "miss_with_cushion": 0.03304692663582287,
+      "false_alarm_with_cushion": 0.11367032514041325,
+      "coverage_q10": 0.24110898661567878,
+      "worst_chunk_miss": 1.0
+    },
+    {
+      "horizon_h": 8,
+      "margin": 6.0,
+      "reachable": true,
+      "cushion": 1.0,
+      "n_calibration_rows": 20898,
+      "n_calibration_events": 1522,
+      "miss_at_margin": 0.04862023653088042,
+      "false_alarm_at_margin": 0.2120148637489678,
+      "miss_with_cushion": 0.03745072273324573,
+      "false_alarm_with_cushion": 0.2558319570602808,
+      "coverage_q10": 0.3275433055794813,
+      "worst_chunk_miss": 1.0
+    }
+  ],
+  "history": [
+    "v1 retrained on 100% of training data after choosing margins; the honest check showed missed warnings rose from ~4% to 10-15%.",
+    "Conclusion: margins are only valid for the exact fitted model; recalibrate whenever the model is retrained."
+  ],
+  "caveats": [
+    "No unseen data remains after calibration.",
+    "Procedure evidence: earlier held-out run kept misses near 4% on test.",
+    "Single installation (455), about one year of data.",
+    "No weather inputs yet; solar gain inferred from collector/tank state.",
+    "Heater effect is NOT modelled here; use physics in the controller.",
+    "12-hour horizon dropped: no benefit over the hour-of-day baseline."
+  ]
+}
