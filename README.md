@@ -187,5 +187,4 @@ Research interests:
 
 ## Project Status
 
-The research prototype and associated software, modelling and experimental work have been developed and documented. Further work may extend physical system integration, model calibration, closed-loop control validation and autonomous fault mitigation.t  
-University of Botswana
+The research prototype and associated software, modelling and experimental work have been developed and documented. Further work may extend physical system integration, model calibration, closed-loop control validation and autonomous fault mitigation.
