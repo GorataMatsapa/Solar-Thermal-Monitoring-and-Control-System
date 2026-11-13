@@ -1,160 +1,191 @@
-# Smart Solar Thermal Monitoring and Control System with Predictive Control and Autonomous Fault Mitigation
+# Smart Solar Thermal Monitoring and Predictive Control System with Autonomous Fault Mitigation
 
 ## Project Overview
 
-The Smart Solar Thermal Monitoring and Control System is an intelligent IoT-based platform designed to improve the efficiency, reliability, and monitoring capabilities of solar thermal energy systems.
+The Smart Solar Thermal Monitoring and Control System (STMaCS) is an IoT-enabled research prototype developed to investigate intelligent monitoring, predictive control and fault mitigation in solar thermal energy systems.
 
-The system integrates real-time thermal monitoring, predictive control, digital twin visualization, and autonomous fault mitigation to enable smarter operation of solar thermal installations. Sensor data collected from the physical system is processed and visualized through a web-based dashboard, allowing system performance analysis, anomaly detection, and proactive decision-making.
+The project explores the integration of embedded systems, wireless sensor networks, cloud-based data acquisition, machine learning, thermal modelling and control strategies to improve the monitoring and operational reliability of solar thermal installations.
 
-The project combines embedded systems, Internet of Things (IoT), cloud connectivity, data analytics, and control strategies to develop a research prototype for intelligent renewable energy management.
+Developed around a 300-litre HOTSET solar thermal system at the University of Botswana, the project combines physical sensor integration with software-based simulation, historical data analysis and digital-twin development.
 
----
+The system provides a framework for monitoring thermal behaviour, analysing historical performance, forecasting future operating conditions and investigating proactive control and fault-response strategies.
 
 ## Research Context and Funding
 
-This project is supported through the **SOLTRAIN+ programme**, funded by the **Austrian Development Agency (ADA)**, and is being developed at the **University of Botswana**.
+This research was undertaken at the **University of Botswana** with support from the **SOLTRAIN+ programme**, funded by the **Austrian Development Agency (ADA)**.
 
-The research contributes to the development of smart monitoring and control solutions for renewable energy systems by exploring the integration of IoT technologies, predictive analytics, and intelligent control methods for solar thermal applications.
+The project contributes to research into intelligent renewable energy systems, particularly the application of IoT technologies, predictive analytics and embedded control in solar thermal energy management.
 
----
+## Key Research Contributions and System Features
 
-## Key Features
+### 1. Embedded Systems and Real-Time Monitoring
 
-### Real-Time Monitoring
+- Integration of ESP32-based embedded hardware for sensor acquisition.
+- Temperature monitoring using digital temperature sensors.
+- Integration and testing of flow-sensing functionality.
+- Acquisition and transmission of sensor measurements for remote monitoring.
+- Development of an IoT communication architecture connecting embedded hardware to cloud infrastructure.
 
-- Collects temperature measurements from key components of the solar thermal system.
-- Monitors thermal behaviour of components such as the solar collector and hot water storage tank.
-- Enables continuous evaluation of system performance.
+### 2. Cloud Connectivity and Data Management
 
-### Digital Twin Visualization
+- Integration with Firebase Realtime Database for telemetry storage and communication.
+- Development of data structures for transmitting and retrieving system measurements and operational states.
+- Integration of embedded hardware data with a Python-based monitoring platform.
 
-- Develops a virtual representation of the physical solar thermal system.
-- Displays system states and component conditions through a graphical interface.
-- Provides improved understanding of system behaviour and operational status.
+### 3. Thermal Digital Twin Development
 
-### Predictive Control
+- Development of a software-based representation of the solar thermal system.
+- Modelling of tank thermal behaviour, heat transfer and operating conditions.
+- Simulation of temperature changes and system responses under different operating scenarios.
+- Integration of digital-twin visualisation into the monitoring dashboard.
 
-- Uses historical and real-time data trends to predict future system behaviour.
-- Supports proactive thermal management decisions.
-- Optimizes heating cycles and improves overall system efficiency.
+### 4. Historical Data Analysis and Predictive Modelling
 
-### Autonomous Fault Mitigation
+- Analysis and preprocessing of historical solar thermal system datasets.
+- Investigation of missing measurements, irregular sampling intervals and invalid sensor values.
+- Development and evaluation of machine-learning models for thermal forecasting.
+- Comparison of forecasting approaches across different prediction horizons.
+- Investigation of how predictive information can support proactive thermal management.
 
-- Detects abnormal operating conditions and potential system failures.
-- Provides intelligent responses to minimize system downtime and maintain reliability.
-- Enables early intervention through automated mitigation strategies.
+### 5. Predictive Control
 
-### Web-Based Monitoring Dashboard
+The project investigates predictive control strategies for maintaining hot-water availability while minimising unnecessary auxiliary heating.
 
-- Developed using Python and Streamlit.
-- Provides visualization of sensor measurements, system trends, and performance indicators.
-- Designed for remote monitoring and future cloud integration.
+The control approach considers predicted thermal conditions and expected hot-water demand to inform heating decisions.
 
-### Alerts and Notifications
+Predictive control strategies were explored through simulation and digital-twin-based evaluation rather than being presented as fully validated control of the physical installation.
 
-- Supports anomaly notifications through communication channels such as SMS and email.
-- Enables timely response to abnormal system conditions.
+### 6. Fault Detection and Hardware-in-the-Loop Testing
 
----
+- Development of fault scenarios involving abnormal flow conditions and thermal operating states.
+- Investigation of fault detection and mitigation strategies.
+- Hardware-in-the-loop testing using representative actuator hardware.
+- Integration of fault-event information into the monitoring and dashboard architecture.
+
+Hardware-in-the-loop testing provided a means of investigating system responses without requiring every mitigation action to be implemented on the full solar thermal installation.
+
+### 7. Web-Based Monitoring Dashboard
+
+Developed using **Python and Streamlit**, the dashboard brings together system monitoring, visualisation and analysis.
+
+The platform includes:
+
+- Digital twin visualisation.
+- Live sensor monitoring.
+- Historical data visualisation.
+- Fault-event logging.
+- System status indicators.
+- Configuration and settings interfaces.
+
+The dashboard integrates embedded-system telemetry with software-based simulation and analysis.
 
 ## System Architecture
 
+```text
+       SOLAR THERMAL SYSTEM
+                |
+                |
+       Embedded Sensor Network
+                |
+                |
+          ESP32 Hardware
+                |
+                |
+       Cloud Data Infrastructure
+          (Firebase RTDB)
+                |
+                |
+       Python / Streamlit Platform
+                |
+       +--------+---------+
+       |        |         |
+       |        |         |
+   Monitoring  Digital   Historical
+   Dashboard    Twin     Data Analysis
+       |        |         |
+       +--------+---------+
+                |
+                |
+       Predictive Modelling
+                |
+                |
+         Predictive Control
+                |
+                |
+       Fault Detection and
+       Mitigation Investigation
+                |
+                |
+       Hardware-in-the-Loop
+             Testing
 ```
-Solar Thermal System
-          |
-          |
-  Temperature Sensors
-          |
-          |
-        ESP32
-          |
-          |
-   Cloud Data Storage
-          |
-          |
- Streamlit Web Dashboard
-          |
-          |
- Digital Twin + Analytics
-          |
-          |
-Predictive Control and
-Autonomous Fault Mitigation
-```
 
----
-
-## Project Development Status
-
-### Stage 1: Concept and System Design ✅
-
-Completed:
-- Defined system architecture and methodology.
-- Identified sensing, communication, and control requirements.
-- Selected appropriate hardware and software components.
-
-### Stage 2: Software Development and Simulation (in progress)
-
-Current stage:
-- Development of the Streamlit-based monitoring dashboard.
-- Creation of the digital twin environment.
-- Development of simulated solar thermal system data.
-- Implementation of predictive control and fault detection algorithms.
-
-### Stage 3: Hardware Integration and Validation (soon)
-
-Planned:
-- Integration of temperature sensors with the ESP32 controller.
-- Connection to the physical solar thermal system.
-- Establishment of communication between hardware, cloud platform, and dashboard.
-- Experimental validation of monitoring and control performance.
-
----
-
-## Technologies and Skills
+## Technologies and Tools
 
 ### Programming and Software
 - Python
+- C/C++
 - Streamlit
 - MATLAB/Simulink
-- Data visualization and analytics
+- Data analysis and visualisation
 
 ### Embedded Systems and IoT
-- ESP32 Microcontroller
-- Temperature sensors
-- IoT communication protocols
-- Cloud-based monitoring systems
+- ESP32 microcontrollers
+- Digital temperature sensors
+- Flow-sensing hardware
+- Firebase Realtime Database
+- Wireless communication and telemetry
 
-### Energy Systems
-- Solar thermal technologies
-- Thermal energy monitoring
-- Renewable energy optimization
+### Machine Learning and Modelling
+- Historical time-series data analysis
+- Machine-learning-based forecasting
+- Predictive modelling
+- Thermal system simulation
+- Digital-twin development
 
-### Control and Data Analytics
-- Predictive algorithms
-- Fault detection
-- Autonomous control strategies
-- System performance analysis
+### Control and Energy Systems
+- Solar thermal energy systems
+- Thermal monitoring
+- Predictive control
+- Fault detection and mitigation
+- Hardware-in-the-loop testing
 
----
+## Research Scope and Limitations
 
-## Project Objectives
+The project combines physical hardware experimentation with simulation and software-based evaluation.
 
-- Improve the efficiency and reliability of solar thermal systems through intelligent monitoring and control.
-- Develop a practical IoT-based solution for renewable energy management.
-- Explore the application of predictive analytics and autonomous fault mitigation in energy systems.
-- Create a research prototype suitable for demonstration, testing, and further development.
+Not all proposed functions were validated through full-scale operation on the physical solar thermal installation. In particular:
 
----
+- The digital twin was developed as a software-based model and was not fully calibrated against the physical installation.
+- Predictive control was evaluated through modelling and simulation rather than complete physical closed-loop deployment.
+- Hardware-in-the-loop tests used representative actuator hardware rather than a fully integrated installation.
+- Some communication and auxiliary notification functions remain subject to further development and validation.
 
-## Publication and Research Output
+These limitations define opportunities for future research and further system development.
 
-This project has contributed to research activities presented at the **International Sustainable Energy Conference (ISEC)** through work supported by the SOLTRAIN+ programme.
+## Research Output
 
----
+The project formed part of research presented at the **International Sustainable Energy Conference (ISEC 2026)** in Graz, Austria, on 15 April 2026.
+
+The work contributed to research into intelligent monitoring and predictive control for solar thermal energy systems.
+
+*The associated conference proceeding should be cited here using its exact published title and bibliographic details.*
 
 ## Author
 
 **Gorata Matsapa**  
-Electronics Engineering Student  
+Electronic Engineering Graduate  
+University of Botswana
+
+Research interests:
+- Embedded Systems and IoT
+- Intelligent Energy Systems
+- Machine Learning for Engineering Applications
+- Predictive Control
+- Renewable Energy Technologies
+- Digital Twins and Cyber-Physical Systems
+
+## Project Status
+
+The research prototype and associated software, modelling and experimental work have been developed and documented. Further work may extend physical system integration, model calibration, closed-loop control validation and autonomous fault mitigation.t  
 University of Botswana
